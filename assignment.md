@@ -118,7 +118,16 @@ Then open the local host URL shown in your terminal (usually `http://localhost:5
 - **Updates:**
   - Once the backend responds, the table must update to show the new "sent" status without requiring a browser page refresh.
 
-For complete detailed requirements, please refer to `assessment.md` in the repository.
+
+
+## Optional Enhancements
+
+While the core requirements above are sufficient to complete the assessment, we encourage you to showcase your creativity and skills by implementing optional features. These additions are **completely optional** but can help demonstrate your ability to think beyond the basic requirements.
+
+### Suggested Ideas
+
+- **Statistics Dashboard:** Display summary metrics (total leads, pending, sent)
+- **Styling Improvements:** Add animations, icons, or custom color schemes
 
 ## Need Help?
 
