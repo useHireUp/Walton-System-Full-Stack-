@@ -1,0 +1,55 @@
+{
+  "leads": [
+    {
+      "id": 1,
+      "email": "john.doe@example.com",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "email": "jane.smith@example.com",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "email": "bob.johnson@example.com",
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "email": "alice.williams@example.com",
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "email": "charlie.brown@example.com",
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "email": "diana.prince@example.com",
+      "status": "pending"
+    },
+    {
+      "id": 7,
+      "email": "edward.norton@example.com",
+      "status": "pending"
+    },
+    {
+      "id": 8,
+      "email": "fiona.apple@example.com",
+      "status": "pending"
+    },
+    {
+      "id": 9,
+      "email": "george.washington@example.com",
+      "status": "pending"
+    },
+    {
+      "id": 10,
+      "email": "helen.troy@example.com",
+      "status": "pending"
+    }
+  ]
+}
+
