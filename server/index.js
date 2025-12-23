@@ -10,98 +10,41 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Define the path to db.json file
-const DB_PATH = path.join(__dirname, 'db.json');
+// TODO: Define the path to db.json file
+// Hint: Use path.join(__dirname, 'db.json')
 
-// Helper function to read the database
-const readDatabase = async () => {
-  try {
-    const data = await fs.readFile(DB_PATH, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    console.error('Error reading database:', error);
-    throw error;
-  }
-};
+// TODO: Implement helper function to read the database
+// This function should read db.json and return the parsed JSON data
 
-// Helper function to write to the database
-const writeDatabase = async (data) => {
-  try {
-    await fs.writeFile(DB_PATH, JSON.stringify(data, null, 2), 'utf8');
-  } catch (error) {
-    console.error('Error writing to database:', error);
-    throw error;
-  }
-};
+// TODO: Implement helper function to write to the database
+// This function should write data to db.json
 
-// GET /api/leads endpoint
+// TODO: Implement GET /api/leads endpoint
+// This endpoint should read db.json and return the list of leads
 app.get('/api/leads', async (req, res) => {
-  try {
-    const data = await readDatabase();
-    res.json(data.leads);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch leads' });
-  }
+  // Your code here
+  res.json({ message: 'GET /api/leads endpoint - TODO: Implement this' });
 });
 
-// POST /api/send-campaign endpoint
+// TODO: Implement POST /api/send-campaign endpoint
+// This endpoint should:
+// 1. Accept an array of Lead IDs from req.body
+// 2. Create a sendEmail(email) function that waits 500ms to resolve (simulating network latency)
+//    Hint: Use setTimeout wrapped in a Promise, or use a delay utility
+// 3. Use Promise.all to send all emails concurrently
+// 4. Update the status of selected leads from "pending" to "sent" in db.json
+// 5. Return a success response
 app.post('/api/send-campaign', async (req, res) => {
-  try {
-    const { leadIds } = req.body;
-    
-    if (!leadIds || !Array.isArray(leadIds)) {
-      return res.status(400).json({ error: 'leadIds must be an array' });
-    }
-
-    // Read the database
-    const data = await readDatabase();
-    
-    // Filter leads to find the ones matching the provided IDs
-    const leadsToSend = data.leads.filter(lead => 
-      leadIds.includes(lead.id) && lead.status === 'pending'
-    );
-
-    if (leadsToSend.length === 0) {
-      return res.json({ 
-        message: 'No pending leads found to send',
-        sent: 0,
-        leads: data.leads
-      });
-    }
-
-    // Create sendEmail function that waits 500ms
-    const sendEmail = (email) => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({ email, success: true });
-        }, 500);
-      });
-    };
-
-    // Use Promise.all to send emails to all selected leads concurrently
-    await Promise.all(leadsToSend.map(lead => sendEmail(lead.email)));
-
-    // Update lead statuses to "sent"
-    data.leads = data.leads.map(lead => {
-      if (leadIds.includes(lead.id) && lead.status === 'pending') {
-        return { ...lead, status: 'sent' };
-      }
-      return lead;
-    });
-
-    // Write updated data back to db.json
-    await writeDatabase(data);
-
-    // Return success response
-    res.json({ 
-      message: `Successfully sent ${leadsToSend.length} email(s)`,
-      sent: leadsToSend.length,
-      leads: data.leads
-    });
-  } catch (error) {
-    console.error('Error sending campaign:', error);
-    res.status(500).json({ error: 'Failed to send campaign' });
-  }
+  // Your code here
+  // TODO: Extract leadIds from req.body
+  // TODO: Read the database
+  // TODO: Filter leads to find the ones matching the provided IDs
+  // TODO: Create sendEmail function that waits 500ms
+  // TODO: Use Promise.all to send emails to all selected leads
+  // TODO: Update lead statuses to "sent"
+  // TODO: Write updated data back to db.json
+  // TODO: Return success response
+  res.json({ message: 'POST /api/send-campaign endpoint - TODO: Implement this' });
 });
 
 // Health check endpoint
